@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Use env vari
 exports.handler = async function(event, context) {
   const { email, plan } = JSON.parse(event.body);
 
-  const priceId = 'prod_SNsVWCVzs3jy6K'; 
+  const priceId = 'price_1RT6khCoDRkedYWarzeK6b3X'; 
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
