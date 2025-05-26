@@ -9,48 +9,45 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, div{
     font-family: "Varela Round";
 }
 
-h1{
+@media only screen and (min-width: 980px) {
+    h1{
     font-weight: 400;
     font-size: 4em;
+    }
+
+    p{
+        font-weight: 400;
+        font-size: 1.7em;
+    }
+
+    a{
+        color: #000000;
+        text-decoration: none;
+    }
+    
 }
 
-p{
-    font-weight: 400;
-    font-size: 1.7em;
+@media only screen and (max-width: 980px) {
+    h1{
+        font-weight: 400;
+        font-size: 6em;
+    }
+
+    p{
+        font-weight: 400;
+        font-size: 4em;
+        line-height: 1.3em;
+    }
+
+    a{
+        color: #000000;
+        text-decoration: none;
+        font-size: 4em;
+    }
+    
 }
 
-a{
-    color: #000000;
-    text-decoration: none;
-}
 
-nav{
-    position: fixed;
-    width: 100%;
-
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: space-between;
-
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(18.2px);
-
-    z-index: 1000;
-}
-
-.nav-links-container{
-    display: flex;
-    gap: 20px;
-}
-
-.logo{
-    font-family: 'Afacad';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 50px;
-
-    margin-left: 20px;
-}
 
 footer{
     display: flex;
@@ -75,4 +72,18 @@ footer{
     font-family: 'Afacad';
     font-size: 1.8em;
     color: #5500FF;
+}
+
+
+
+input, textarea{
+    border-radius: 10px;
+    border-color: #515151;
+    border-width: 2px;
+    padding: 10px;
+
+    font-family: 'Varela Round';
+    color: #9C9C9C;
+    font-size: 2em;
+    margin: 10px;
 }

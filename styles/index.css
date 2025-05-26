@@ -24,11 +24,11 @@
 }
 
 .home-tile1-left-text{
-
+    max-width: 550px;
     margin-bottom: 10px;
 }
 
-.home-tile1-left-mail{
+.home-tile1-left-mail{  
     font-weight: 400;
     font-size: 2.5em;
 
@@ -122,6 +122,8 @@
     top: 320px;
     right: 0;
 
+    max-width: 400px;
+
 }
 
 .home-tile2-right-container{
@@ -185,6 +187,9 @@
     opacity: 0.67;
     font-weight: 400;
     font-size: 2.325em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
 }
 
 .home-tile3-text-g1{
@@ -288,6 +293,7 @@
     font-family: 'JetBrains Mono';
     color: #FFFFFF;
     font-size: 2em;
+    max-width: 1000px;
 }
 
 .home-tile4-text-em{
@@ -400,8 +406,9 @@
 
 .home-tile6-text{
     font-size: 3em;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
 }
 
 .home-tile6-button-container{

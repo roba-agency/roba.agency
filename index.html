@@ -2,50 +2,65 @@
 <html>
     <head>
         <title>Roba</title>
-
-        <meta name="viewport" content="width=device-width" />
-
-
+        
         <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/index.css">
+
+        
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Varela+Round&display=swap" rel="stylesheet">    
+
     </head>
     <body>
         <nav>
-            <a class="logo">roba</a>
+            <a class="logo" href="/">roba</a>
             <div class="nav-links-container">
                 <div class="nav-links-dropdown dropdown">
                     socials ▼
                     <div class="dropdown-menu">
-                        <a href="#">Beans</a>
-                        <a href="#">Beans</a>
-                        <a href="#">Beans</a>
+                        <a href="#">Lorem</a>
+                        <a href="#">Lorem</a>
+                        <a href="#">Lorem</a>
                     </div>
                 </div>
                 <div class="nav-links-dropdown dropdown">
-                    work with us ▼
+                    <a href="/pricing">pricing ▼</a>
                     <div class="dropdown-menu">
-                        <a href="#">Beans</a>
-                        <a href="#">Beans</a>
+                        <a href="/pricing/base">base</a>
+                        <a href="/pricing/premium">premium</a>
                     </div>
                 </div>
-                <a class="nav-button-lets-go" href="#">lets go!</a>
+
+                <a class="nav-button-lets-go" href="/pricing">lets go!</a>
+
+                <div class="nav-links-mobile-container">
+                    <img src="/assets/main/nav.png" class="nav-links-mobile-icon" id="mobile-nav-toggle">
+                    <div class="nav-links-mobile" id="mobile-nav">
+                        <h1>Pricing</h1>
+                        <p>base</p>
+                        <p>premium</p>
+
+                        <h1>Socials</h1>
+                        <p>BiliBili</p>
+                        <p>WeChat</p>
+                        <p>RedNote</p>
+                    </div>
+                </div>
             </div>
         </nav>
         
 
         <div class="home-tile1-container">
             <div class="home-tile1-left-container">
-                <h1 class="home-tile1-left-title">All of your <br>website needs</h1>
+                <h1 class="home-tile1-left-title">All of your website needs</h1>
                 <p class="home-tile1-left-text">Created by 2 professionals, Rohan Kharel and Badie Badie, we offer services for anyone willing to get a website</p>
                 <a class="home-tile1-left-mail" href="mailto:hello@roba.agency">hello@roba.agency</a>
                 <div style="
                 margin-top: 20px;
                 "></div>
-                <a class="home-tile1-left-lets-go" href="#">lets go!</a>
+                <a class="home-tile1-left-lets-go" href="/pricing">lets go!</a>
             </div>
             <div class="home-tile1-right-container">
                 <img class="home-tile1-right-badie" src="/assets/index/badie.png">
@@ -55,7 +70,7 @@
 
         <div class="home-tile2-container">
             <div class="home-tile2-left-container">
-                <h1 class="home-tile2-left-title">Professional code and design</h1>
+                <h1 class="home-tile2-left-title">Professional<br> code and<br> design</h1>
                 <p class="home-tile2-left-text">We bring you beautiful design complimented by high quality, responsive and fast code to make your website feel professional.</p>
             </div>
             <div class="home-tile2-right-container">
@@ -87,30 +102,30 @@
             <div class="home-tile4-orb2"></div>
         </div>
 
-        <div class="home-tile5-container">
+        <div class="home-tile5-container" id="pricing">
             <h1 class="home-tile5-title">pricing</h1>
             <div class="home-tile5-pricing-container">
                 <div class="home-tile5-pricing-tier1">
                     <p class="home-tile5-pricing-tier1-title">£69.42</p>
                     <p class="home-tile5-pricing-tier1-subtitle">base tier</p>
-                    <p>-big balls</p>
+                    <p>-big</p>
                     <p>-chinese airlines</p>
-                    <p>-Mao zedong</p>
+                    <p>-beans</p>
                     <p>-overprices as hell</p>
                     <p>-ugly design</p>
                     <p>-lazy coding</p>
-                    <a class="home-tile5-pricing-tier1-button" href="#">lets go!</a>
+                    <a class="home-tile5-pricing-tier1-button" href="/pricing/base">lets go!</a>
                 </div>
                 <div class="home-tile5-pricing-tier2">
                     <p class="home-tile5-pricing-tier2-title">£10.00</p>
                     <p class="home-tile5-pricing-tier2-subtitle">premium tier</p>
-                    <p>-bigger balls</p>
+                    <p>-bigger</p>
                     <p>-swiss air</p>
-                    <p>-Xi Jinping</p>
+                    <p>-beans</p>
                     <p>-More overpriced</p>
                     <p>-uglier design</p>
                     <p>-lazier coding</p>
-                    <a class="home-tile5-pricing-tier2-button" href="#">lets go!</a>
+                    <a class="home-tile5-pricing-tier2-button" href="/pricing/premium">lets go!</a>
 
                 </div>
             </div>
@@ -122,7 +137,7 @@
                 or click the button below to get started!</p>
             
             <div class="home-tile6-button-container">
-                <a class="home-tile6-button-lets-go" href="#">lets go!</a>
+                <a class="home-tile6-button-lets-go" href="/pricing">lets go!</a>
                 <a class="home-tile6-button-quote" href="#">get a free quote ›</a>
             </div>
         </div>
@@ -147,5 +162,6 @@
 
         </footer>
         <link rel="stylesheet" href="/styles/navbar.css">
+        <script src="/scripts/navbar.js"></script>
     </body>
 </html>
