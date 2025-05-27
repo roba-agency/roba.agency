@@ -138,7 +138,7 @@
 
                 const { sessionId } = await response.json();
 
-                const stripe = Stripe("pk_live_51RT54eCoDRkedYWaOUqKFirqRPTPIZMlRPcM2Jgl4HskXXtQzlEeFDEjys0K26OxaSxYD1ByB52ugKU3xuB3CP2d00Md7j1mGU");
+                const stripe = Stripe("pk_test_51RT54mCaH7aBr0GI5luvIkBqJ1b8EBdSnwKSCgSc8RGPDOWENSpX1bOydb7YIuW1nwBG4k4zcSKRCjeLTmBkZEQ500h9h9YqDH");
                 stripe.redirectToCheckout({ sessionId });
             });
         });
