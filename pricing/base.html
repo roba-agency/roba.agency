@@ -118,21 +118,18 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                // 1. Submit to Netlify Forms
+                // Collect form data and store in localStorage for use on the success page
                 const formData = new FormData(form);
-                await fetch("/", {
-                    method: "POST",
-                    body: formData,
-                });
+                const data = {};
+                formData.forEach((value, key) => { data[key] = value; });
+                localStorage.setItem('baseFormData', JSON.stringify(data));
 
-                // 2. Create Stripe Checkout session via Netlify Function
-                // Collect any data you want to send to Stripe (e.g., email, plan)
+                // Create Stripe Checkout session
                 const stripeData = {
                     email: formData.get("email"),
                     plan: "base"
                 };
 
-                // Call your Netlify Function to create a Stripe session
                 const response = await fetch("/.netlify/functions/create-stripe-session", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -141,8 +138,7 @@
 
                 const { sessionId } = await response.json();
 
-                // 3. Redirect to Stripe Checkout
-                const stripe = Stripe("pk_live_51RT54eCoDRkedYWaOUqKFirqRPTPIZMlRPcM2Jgl4HskXXtQzlEeFDEjys0K26OxaSxYD1ByB52ugKU3xuB3CP2d00Md7j1mGU"); // Replace with your real key
+                const stripe = Stripe("pk_live_51RT54eCoDRkedYWaOUqKFirqRPTPIZMlRPcM2Jgl4HskXXtQzlEeFDEjys0K26OxaSxYD1ByB52ugKU3xuB3CP2d00Md7j1mGU");
                 stripe.redirectToCheckout({ sessionId });
             });
         });

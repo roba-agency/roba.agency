@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pricing | Roba</title>
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/pricing/index.css">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Varela+Round&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <a class="logo" href="/">roba</a>
+        <div class="nav-links-container">
+            <div class="nav-links-dropdown dropdown">
+                socials ▼
+                <div class="dropdown-menu">
+                    <a href="#">Beans</a>
+                    <a href="#">Beans</a>
+                    <a href="#">Beans</a>
+                </div>
+            </div>
+            <div class="nav-links-dropdown dropdown">
+                <a href="/pricing">pricing ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/pricing/base">base</a>
+                    <a href="/pricing/premium">premium</a>
+                </div>
+            </div>
+
+            <a class="nav-button-lets-go" href="#">lets go!</a>
+
+            <div class="nav-links-mobile-container">
+                <img src="/assets/main/nav.png" class="nav-links-mobile-icon" id="mobile-nav-toggle">
+                <div class="nav-links-mobile" id="mobile-nav">
+                    <h1>Pick the tier of website you want:</h1>
+                    <p>Base tier</p>
+                    <p>Premium tier</p>
+
+                    <h1>Socials</h1>
+                    <p>BiliBili</p>
+                    <p>WeChat</p>
+                    <p>RedNote</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h1></h1>
+
+    <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify style="display:none;">
+        <input type="hidden" name="form-name" value="Base">
+        <input type="hidden" name="first-name">
+        <input type="hidden" name="last-name">
+        <input type="hidden" name="email">
+        <input type="hidden" name="website-name">
+        <input type="hidden" name="budget">
+        <input type="hidden" name="type-of-website">
+        <input type="hidden" name="purpose">
+        <input type="hidden" name="details">
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const data = JSON.parse(localStorage.getItem('baseFormData') || '{}');
+            const form = document.getElementById('netlify-success-form');
+
+            Object.keys(data).forEach(key => {
+                if (form.elements[key]) form.elements[key].value = data[key];
+            });
+            form.submit();
+            // Optionally clear the data
+            localStorage.removeItem('baseFormData');
+        });
+    </script>
+
+    <footer>
+        <div class="footer-column">
+            <p>Contact us:</p>
+            <a href="mailto:hello@roba.agency">hello@roba.agency</a>
+        </div>
+        <div class="footer-column">
+            <p>Socials:</p>
+            <a href="#">BiliBili</a>
+            <a href="#">WeChat</a>
+            <a href="#">RedNote</a>
+        </div>
+        <div class="footer-column">
+            <p>Our other stuff:</p>
+            <a href="#">badiestudios</a>
+            <a href="#">rohanstuff</a>
+            <a href="#">thesilicon</a>
+        </div>
+
+    </footer>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <script src="/scripts/navbar.js"></script>
+</body>
+
+</html>
