@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Pricing | Roba</title>
+    <title>Payment Success | Roba</title>
 
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/pricing/index.css">
 
-
+    <script src="https://js.stripe.com/v3/"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,9 @@
         </div>
     </nav>
 
-    <h1></h1>
+    <div id="payment-status" style="text-align: center; padding: 20px;">
+        <h1>Verifying payment...</h1>
+    </div>
 
     <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify style="display:none;">
         <input type="hidden" name="form-name" value="Base">
@@ -68,17 +70,48 @@
         <input type="hidden" name="purpose">
         <input type="hidden" name="details">
     </form>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const data = JSON.parse(localStorage.getItem('baseFormData') || '{}');
+        document.addEventListener("DOMContentLoaded", async function () {
+            const stripe = Stripe("pk_test_51RT54mCaH7aBr0GI5luvIkBqJ1b8EBdSnwKSCgSc8RGPDOWENSpX1bOydb7YIuW1nwBG4k4zcSKRCjeLTmBkZEQ500h9h9YqDH");
+            const statusDiv = document.getElementById('payment-status');
             const form = document.getElementById('netlify-success-form');
 
-            Object.keys(data).forEach(key => {
-                if (form.elements[key]) form.elements[key].value = data[key];
-            });
-            form.submit();
-            // Optionally clear the data
-            localStorage.removeItem('baseFormData');
+            // Get the session ID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+
+            if (!sessionId) {
+                statusDiv.innerHTML = '<h1 style="color: #FF0000;">Error: No payment session found</h1>';
+                return;
+            }
+
+            try {
+                // Verify the payment status with Stripe
+                const session = await stripe.checkout.sessions.retrieve(sessionId);
+                
+                if (session.payment_status === 'paid') {
+                    // Payment was successful, submit the form
+                    const baseData = JSON.parse(localStorage.getItem('baseFormData') || '{}');
+                    const premiumData = JSON.parse(localStorage.getItem('premiumFormData') || '{}');
+                    const data = Object.keys(baseData).length > 0 ? baseData : premiumData;
+                    
+                    Object.keys(data).forEach(key => {
+                        if (form.elements[key]) form.elements[key].value = data[key];
+                    });
+
+                    statusDiv.innerHTML = '<h1 style="color: #00751D;">Payment successful! Submitting your information...</h1>';
+                    form.submit();
+                    // Clear both storage items
+                    localStorage.removeItem('baseFormData');
+                    localStorage.removeItem('premiumFormData');
+                } else {
+                    statusDiv.innerHTML = '<h1 style="color: #FF0000;">Payment was not completed. Please try again.</h1>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                statusDiv.innerHTML = '<h1 style="color: #FF0000;">Error verifying payment. Please contact support.</h1>';
+            }
         });
     </script>
 

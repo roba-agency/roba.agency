@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/pricing/base.css">
 
-        
+        <script src="https://js.stripe.com/v3/"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <form name="Premium" method="POST" data-netlify="true" netlify>
+        <form id="premium-form" name="Premium" method="POST" data-netlify="true" netlify>
             <h1>Premium plan</h1>
             <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
             <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
@@ -86,7 +86,7 @@
 
             <input type="hidden" name="form-name" value="Premium">
 
-            <input type="submit" value="Continue to Stripe">
+            <input type="submit" value="Continue to Stripe" id="stripe-submit">
         </form>
 
         <footer>
@@ -110,5 +110,37 @@
         </footer>
         <link rel="stylesheet" href="/styles/navbar.css">
         <script src="/scripts/navbar.js"></script>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('premium-form');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Collect form data and store in localStorage for use on the success page
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => { data[key] = value; });
+                localStorage.setItem('premiumFormData', JSON.stringify(data));
+
+                // Create Stripe Checkout session
+                const stripeData = {
+                    email: formData.get("email"),
+                    plan: "premium"
+                };
+
+                const response = await fetch("/.netlify/functions/create-stripe-session", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(stripeData)
+                });
+
+                const { sessionId } = await response.json();
+
+                const stripe = Stripe("pk_test_51RT54mCaH7aBr0GI5luvIkBqJ1b8EBdSnwKSCgSc8RGPDOWENSpX1bOydb7YIuW1nwBG4k4zcSKRCjeLTmBkZEQ500h9h9YqDH");
+                stripe.redirectToCheckout({ sessionId });
+            });
+        });
+        </script>
     </body>
 </html>
