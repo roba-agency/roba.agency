@@ -57,7 +57,21 @@
         <h1>Verifying payment...</h1>
     </div>
 
-    <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify style="display:none;">
+    <div id="success-message" style="display: none; text-align: center; padding: 20px;">
+        <h1 style="color: #00751D;">Thank you for your submission!</h1>
+        <p style="font-size: 1.5em; margin-top: 20px;">We'll be in touch with you shortly.</p>
+        <a href="/" style="
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5500FF;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.2em;">Return to Home</a>
+    </div>
+
+    <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify style="display:none;" action="/payment-success?success=true">
         <input type="hidden" name="form-name" value="Base">
         <input type="hidden" name="first-name">
         <input type="hidden" name="last-name">
@@ -72,10 +86,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
             const statusDiv = document.getElementById('payment-status');
+            const successDiv = document.getElementById('success-message');
             const form = document.getElementById('netlify-success-form');
 
-            // Get the session ID from the URL
+            // Check if we're returning from form submission
             const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                statusDiv.style.display = 'none';
+                successDiv.style.display = 'block';
+                return;
+            }
+
+            // Get the session ID from the URL
             const sessionId = urlParams.get('session_id');
 
             if (!sessionId) {
