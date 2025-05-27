@@ -1,13 +1,12 @@
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async function(event, context) {
   const { email, plan } = JSON.parse(event.body);
 
   // Select price ID based on plan
   const priceId = plan === 'premium' 
-    ? 'price_1RTIcoCaH7aBr0GIvP9QYSpM'  // Premium plan price
-    : 'price_1RTI9uCaH7aBr0GIq6PeWVYe';  // Base plan price
+    ? 'price_1RTKUBCoDRkedYWaDsJejflI'  // Premium plan price
+    : 'price_1RTKTsCoDRkedYWamqrptV6h';  // Base plan price
 
   try {
     const session = await stripe.checkout.sessions.create({

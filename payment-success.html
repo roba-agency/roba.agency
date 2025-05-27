@@ -71,8 +71,11 @@
             font-size: 1.2em;">Return to Home</a>
     </div>
 
-    <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify style="display:none;" action="/payment-success?success=true">
+    <form id="netlify-success-form" name="Base" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none;" action="/payment-success?success=true">
         <input type="hidden" name="form-name" value="Base">
+        <p class="hidden" style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
         <input type="hidden" name="first-name">
         <input type="hidden" name="last-name">
         <input type="hidden" name="email">
@@ -81,13 +84,31 @@
         <input type="hidden" name="type-of-website">
         <input type="hidden" name="purpose">
         <input type="hidden" name="details">
+        <input type="hidden" name="payment-verified" value="true">
+    </form>
+
+    <form id="netlify-success-form-premium" name="Premium" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none;" action="/payment-success?success=true">
+        <input type="hidden" name="form-name" value="Premium">
+        <p class="hidden" style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        <input type="hidden" name="first-name">
+        <input type="hidden" name="last-name">
+        <input type="hidden" name="email">
+        <input type="hidden" name="website-name">
+        <input type="hidden" name="budget">
+        <input type="hidden" name="type-of-website">
+        <input type="hidden" name="purpose">
+        <input type="hidden" name="details">
+        <input type="hidden" name="payment-verified" value="true">
     </form>
 
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
             const statusDiv = document.getElementById('payment-status');
             const successDiv = document.getElementById('success-message');
-            const form = document.getElementById('netlify-success-form');
+            const baseForm = document.getElementById('netlify-success-form');
+            const premiumForm = document.getElementById('netlify-success-form-premium');
 
             // Check if we're returning from form submission
             const urlParams = new URLSearchParams(window.location.search);
@@ -118,22 +139,44 @@
                     // Payment was successful, submit the form
                     const baseData = JSON.parse(localStorage.getItem('baseFormData') || '{}');
                     const premiumData = JSON.parse(localStorage.getItem('premiumFormData') || '{}');
-                    const data = Object.keys(baseData).length > 0 ? baseData : premiumData;
                     
-                    if (Object.keys(data).length === 0) {
+                    if (Object.keys(baseData).length > 0) {
+                        // Submit base form
+                        Object.keys(baseData).forEach(key => {
+                            if (baseForm.elements[key]) baseForm.elements[key].value = baseData[key];
+                        });
+                        statusDiv.innerHTML = '<h1 style="color: #00751D;">Payment successful! Submitting your information...</h1>';
+                        
+                        // Submit form using Fetch API
+                        const formData = new FormData(baseForm);
+                        await fetch('/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: new URLSearchParams(formData).toString()
+                        });
+                        
+                        localStorage.removeItem('baseFormData');
+                        window.location.href = '/payment-success?success=true';
+                    } else if (Object.keys(premiumData).length > 0) {
+                        // Submit premium form
+                        Object.keys(premiumData).forEach(key => {
+                            if (premiumForm.elements[key]) premiumForm.elements[key].value = premiumData[key];
+                        });
+                        statusDiv.innerHTML = '<h1 style="color: #00751D;">Payment successful! Submitting your information...</h1>';
+                        
+                        // Submit form using Fetch API
+                        const formData = new FormData(premiumForm);
+                        await fetch('/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: new URLSearchParams(formData).toString()
+                        });
+                        
+                        localStorage.removeItem('premiumFormData');
+                        window.location.href = '/payment-success?success=true';
+                    } else {
                         statusDiv.innerHTML = '<h1 style="color: #FF0000;">Error: Form data not found</h1>';
-                        return;
                     }
-
-                    Object.keys(data).forEach(key => {
-                        if (form.elements[key]) form.elements[key].value = data[key];
-                    });
-
-                    statusDiv.innerHTML = '<h1 style="color: #00751D;">Payment successful! Submitting your information...</h1>';
-                    form.submit();
-                    // Clear both storage items
-                    localStorage.removeItem('baseFormData');
-                    localStorage.removeItem('premiumFormData');
                 } else {
                     statusDiv.innerHTML = '<h1 style="color: #FF0000;">Payment was not completed. Please try again.</h1>';
                 }

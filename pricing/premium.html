@@ -56,25 +56,28 @@
             <div class="info-grid">
                 <div class="info-grid-item">
                     <h1>1</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Fill out the form below with your project details</p>
                 </div>
                 <div class="info-grid-item">
                     <h1>2</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Complete the secure payment process</p>
                 </div>
                 <div class="info-grid-item">
                     <h1>3</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>We'll contact you within 24 hours to start</p>
                 </div>
                 <div class="info-grid-item">
                     <h1>4</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Your website will be ready in 4-6 weeks</p>
                 </div>
             </div>
         </div>
 
-        <form id="premium-form" name="Premium" method="POST" data-netlify="true" netlify>
+        <form id="premium-form" name="Premium" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/payment-success?success=true">
             <h1>Premium plan</h1>
+            <p class="hidden" style="display: none;">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
             <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
             <input type="email" id="email" name="email" placeholder="Email address" required>
@@ -137,7 +140,7 @@
 
                 const { sessionId } = await response.json();
 
-                const stripe = Stripe("pk_test_51RT54mCaH7aBr0GI5luvIkBqJ1b8EBdSnwKSCgSc8RGPDOWENSpX1bOydb7YIuW1nwBG4k4zcSKRCjeLTmBkZEQ500h9h9YqDH");
+                const stripe = Stripe("pk_live_51RT54eCoDRkedYWaOUqKFirqRPTPIZMlRPcM2Jgl4HskXXtQzlEeFDEjys0K26OxaSxYD1ByB52ugKU3xuB3CP2d00Md7j1mGU");
                 stripe.redirectToCheckout({ sessionId });
             });
         });
