@@ -16,8 +16,8 @@ exports.handler = async function(event, context) {
       },
     ],
     customer_email: email,
-    success_url: 'https://example.com',
-    cancel_url: 'https://google.com',
+    success_url: 'https://roba.agency/success',
+    cancel_url: 'https://roba.agency',
   });
 
   return {
