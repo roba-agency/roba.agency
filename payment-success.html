@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/pricing/index.css">
 
-    <script src="https://js.stripe.com/v3/"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -73,7 +71,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
-            const stripe = Stripe("pk_test_51RT54mCaH7aBr0GI5luvIkBqJ1b8EBdSnwKSCgSc8RGPDOWENSpX1bOydb7YIuW1nwBG4k4zcSKRCjeLTmBkZEQ500h9h9YqDH");
             const statusDiv = document.getElementById('payment-status');
             const form = document.getElementById('netlify-success-form');
 
@@ -87,15 +84,25 @@
             }
 
             try {
-                // Verify the payment status with Stripe
-                const session = await stripe.checkout.sessions.retrieve(sessionId);
-                
-                if (session.payment_status === 'paid') {
+                // Verify the payment status using our Netlify function
+                const response = await fetch(`/.netlify/functions/verify-payment?session_id=${sessionId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to verify payment');
+                }
+
+                const result = await response.json();
+
+                if (result.payment_status === 'paid') {
                     // Payment was successful, submit the form
                     const baseData = JSON.parse(localStorage.getItem('baseFormData') || '{}');
                     const premiumData = JSON.parse(localStorage.getItem('premiumFormData') || '{}');
                     const data = Object.keys(baseData).length > 0 ? baseData : premiumData;
                     
+                    if (Object.keys(data).length === 0) {
+                        statusDiv.innerHTML = '<h1 style="color: #FF0000;">Error: Form data not found</h1>';
+                        return;
+                    }
+
                     Object.keys(data).forEach(key => {
                         if (form.elements[key]) form.elements[key].value = data[key];
                     });
