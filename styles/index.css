@@ -6,6 +6,10 @@
     margin-bottom: 100px;
 
     padding-top: 100px;
+
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home-tile1-left-container{
@@ -457,4 +461,214 @@
 .home-tile6-button-quote:active{
     background-color: #949494;
     color: #000000;
+}
+
+@media only screen and (max-width: 980px) {
+    .home-tile1-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 100px 20px 40px 20px;
+        box-sizing: border-box;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 20px;
+    }
+
+    .home-tile1-left-container {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-tile1-left-title {
+        font-size: 5em;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .home-tile1-left-text {
+        margin: 0 auto 30px auto;
+        font-size: 2.5em;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .home-tile1-left-mail {
+        font-size: 3em;
+        display: block;
+        margin: 30px 0;
+    }
+
+    .home-tile1-left-lets-go {
+        font-size: 3em;
+        padding: 15px 30px;
+        margin: 30px auto;
+        display: inline-block;
+    }
+
+    .home-tile1-right-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .home-tile1-right-badie, .home-tile1-right-rohan {
+        position: static;
+        width: 180px;
+        height: 180px;
+
+    }
+
+    .home-tile1-right-badie {
+    }
+
+    .home-tile1-right-rohan {
+    }
+    
+    .home-tile2-container{
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 100px;
+    }
+
+    .home-tile2-left-container{
+        width: 100%;
+    }
+
+    .home-tile2-left-title{
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-tile2-left-text{
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-tile2-right-container{
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-tile2-right-img1{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 30%;
+        
+    }
+
+    .home-tile2-right-img2{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 30%;
+    }
+    
+    .home-tile2-right-img3{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 30%;
+    }
+
+    .home-tile3-container{
+        text-align: center;
+    }
+
+
+    .home-tile3-line{
+        display: none;
+    }
+
+    .home-tile4-container{
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .home-tile4-orb1{
+        display: none;
+    }
+    
+    .home-tile4-orb2{
+        display: none;
+    }
+
+    .home-tile5-container {
+        padding: 60px 20px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+
+    .home-tile5-title {
+        font-size: 5em;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .home-tile5-pricing-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .home-tile5-pricing-tier1-button, .home-tile5-pricing-tier2-button {
+        font-size: 2.5em;
+        padding: 15px 40px;
+        margin-top: 30px;
+        display: inline-block;
+    }
+
+    .home-tile6-container {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .home-tile6-title {
+        font-size: 5em;
+        margin-bottom: 30px;
+    }
+
+    .home-tile6-text {
+        font-size: 2.5em;
+        margin: 30px auto;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .home-tile6-button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .home-tile6-button-lets-go, .home-tile6-button-quote {
+        font-size: 2.5em;
+        padding: 15px 40px;
+        margin: 10px 0;
+        display: inline-block;
+    }
 }

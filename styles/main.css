@@ -28,25 +28,58 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, div{
 }
 
 @media only screen and (max-width: 980px) {
+    html {
+        font-size: 16px;
+    }
+
     h1{
         font-weight: 400;
-        font-size: 6em;
+        font-size: 4em;
+        line-height: 1.2;
+        margin-bottom: 0.5em;
     }
 
     p{
         font-weight: 400;
-        font-size: 4em;
-        line-height: 1.3em;
+        font-size: 2.5em;
+        line-height: 1.4;
+        margin: 0.5em 0;
     }
 
     a{
         color: #000000;
         text-decoration: none;
-        font-size: 4em;
+        font-size: 2.5em;
     }
-    
-}
 
+    body {
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-column p, .footer-column a{
+        font-size: 4em !important;
+    }
+
+    input, textarea {
+        font-size: 2.5em;
+        padding: 15px;
+        margin: 15px 10px;
+        width: calc(100% - 50px);
+    }
+
+    .footer-column {
+        gap: 20px;
+    }
+}
 
 
 footer{
@@ -54,6 +87,8 @@ footer{
     justify-content: space-around;
     padding-top: 20px;
     padding-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-column{

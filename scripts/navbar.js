@@ -1,22 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
     const toggle = document.getElementById('mobile-nav-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-
-    mobileNav.style.display = 'none';
+    let isOpen = false;
 
     toggle.addEventListener('click', function(e) {
         e.stopPropagation();
-        if (mobileNav.style.display === 'none') {
-            mobileNav.style.display = 'block';
+        isOpen = !isOpen;
+        if (isOpen) {
+            mobileNav.classList.add('active');
         } else {
-            mobileNav.style.display = 'none';
+            mobileNav.classList.remove('active');
         }
     });
 
     // Close mobile nav when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileNav.style.display === 'block' && !mobileNav.contains(e.target) && e.target !== toggle) {
-            mobileNav.style.display = 'none';
+        if (isOpen && !mobileNav.contains(e.target) && e.target !== toggle) {
+            mobileNav.classList.remove('active');
+            isOpen = false;
         }
     });
 });
