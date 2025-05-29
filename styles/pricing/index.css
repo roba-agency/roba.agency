@@ -115,3 +115,39 @@
 .sell-pricing-tier2{
     box-shadow: 10px 10px 20px #8CC59B;
 }
+
+@media only screen and (max-width: 980px) {
+    .info-container{
+        padding-top: 150px;
+        max-width: 700px;
+        
+    }
+
+    .sell-container {
+        padding: 60px 20px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+
+    .sell-title {
+        font-size: 5em;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .sell-pricing-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .sell-pricing-tier1-button, .sell-pricing-tier2-button {
+        font-size: 2.5em;
+        padding: 15px 40px;
+        margin-top: 30px;
+        display: inline-block;
+    }
+}

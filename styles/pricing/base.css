@@ -62,3 +62,34 @@ form{
 #email, #website-name, #purpose, #details{
     width: 954px;
 }
+
+@media only screen and (max-width: 980px) {
+    .info-container{
+        padding-top: 150px;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto ;
+    }
+
+    .info-title{
+        font-size: 4.5em !important;
+    }
+
+    form{
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #first-name, #last-name, #budget, #type-of-website{
+        width: 43%;
+    }
+
+    #email, #website-name, #purpose, #details{
+        width: calc(86% + 30px);
+    }
+
+    input{
+        padding-right: 0;
+    }
+}
