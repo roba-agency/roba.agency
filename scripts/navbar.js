@@ -1,23 +1,15 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const toggle = document.getElementById('mobile-nav-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-    let isOpen = false;
+export function navbarDropdown() {
+    const socialsBtn = document.querySelector('.navbar-desktop-socials');
+    const dropdown = document.querySelector('.navbar-desktop-socials-dropdown');
 
-    toggle.addEventListener('click', function(e) {
+    if (!socialsBtn || !dropdown) return;
+
+    socialsBtn.addEventListener('mouseover', function(e) {
         e.stopPropagation();
-        isOpen = !isOpen;
-        if (isOpen) {
-            mobileNav.classList.add('active');
-        } else {
-            mobileNav.classList.remove('active');
-        }
+        dropdown.classList.toggle('show');
     });
 
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', function(e) {
-        if (isOpen && !mobileNav.contains(e.target) && e.target !== toggle) {
-            mobileNav.classList.remove('active');
-            isOpen = false;
-        }
+    dropdown.addEventListener('mouseleave', function() {
+        dropdown.classList.remove('show');
     });
-});
+}

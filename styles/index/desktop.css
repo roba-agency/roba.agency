@@ -1,0 +1,157 @@
+.home-landing-container{
+    padding-top: 10rem;
+    margin-bottom: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-landing-title{
+    font-size: 11rem;
+    margin: 0;
+    font-weight: 500; 
+}
+
+.home-landing-text{
+    font-size: 1.6em;
+    max-width: 12em;
+    text-align: center;
+    line-height: 1.8rem;
+    font-weight: 450;
+    margin-top: 0;
+}
+
+.home-landing-button{
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid white;
+    border-radius: 1000px;
+    background-color: rgba(217, 217, 217, 0.1);
+    padding: 5px 10px 5px 10px;
+
+    justify-content: space-around;
+}
+
+.home-landing-button-text{
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.home-landing-button-arrow{
+    width: 40%;
+}
+
+.home-shape-orange {
+    position: absolute;
+    top: 6rem;
+    left: 20px;
+    width: 250px;
+    height: auto;
+}
+
+.home-shape-blue {
+    position: absolute;
+    bottom: -6rem;
+    left: 8.5rem;
+    width: 250px;
+    height: auto;
+}
+
+.home-shape-purple {
+    position: absolute;
+    right: 3rem;
+    width: 250px;
+    bottom: -11rem;
+}
+
+.home-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-bottom: 2.5rem;
+
+    position: relative;
+}
+
+
+.home-card{
+    background-color: #1E1E1E;
+    border-radius: 50px;
+    width: 80%;
+    height: 80%;
+
+    padding: 5em 0;
+}
+
+.home-card-text{
+    text-align: center;
+}
+
+.home-card1-title, .home-card2-title, .home-card3-title, .home-card4-title, .home-card5-title{
+    font-size: 4.5em;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.home-card1-subtitle, .home-card2-subtitle, .home-card3-subtitle, .home-card4-subtitle, .home-card5-subtitle{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.home-card1-text{
+    background: linear-gradient(90deg, #B074FF 0%, #FF5100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    
+}
+
+.home-card2-text{
+    background: linear-gradient(90deg, #0062FF 0%, #FF5100 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-card3-text{
+    background: linear-gradient(90deg, #BC89FF 0%, #7B3AFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-card4-text{
+    background: linear-gradient(90deg, #5596FF 12.35%, #FF9868 50.53%, #8EFFAA 88.71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-card5-text{
+    background: linear-gradient(90deg, #FF5100 26.35%, #FFB700 74.31%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-card1{
+    text-align: right;
+}
