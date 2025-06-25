@@ -87,19 +87,6 @@
 }
 
 
-.home-card{
-    background-color: #1E1E1E;
-    border-radius: 50px;
-    width: 80%;
-    height: 80%;
-
-    padding: 5em 0;
-}
-
-.home-card-text{
-    text-align: center;
-}
-
 .home-card1-title, .home-card2-title, .home-card3-title, .home-card4-title, .home-card5-title{
     font-size: 4.5em;
     font-weight: 500;
@@ -109,9 +96,11 @@
 .home-card1-subtitle, .home-card2-subtitle, .home-card3-subtitle, .home-card4-subtitle, .home-card5-subtitle{
     font-size: 2em;
     font-weight: 500;
+    margin-top: 0;
 }
 
 .home-card1-text{
+    text-align: center;
     background: linear-gradient(90deg, #B074FF 0%, #FF5100 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -120,7 +109,23 @@
     
 }
 
+.home-card1-content {
+    background-color: #1E1E1E;
+    border-radius: 50px;
+    width: 900px;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.home-card1-line{
+    width: 95%;
+}
+
 .home-card2-text{
+    text-align: center;
     background: linear-gradient(90deg, #0062FF 0%, #FF5100 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -128,23 +133,37 @@
     text-fill-color: transparent;
 }
 
+.home-card2-content {
+    background-color: #1E1E1E;
+    border-radius: 50px;
+    width: calc(900px - 20px);
+    height: 450px;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: 'Jetbrains Mono';
+    color: #4E4E4E;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    padding-left: 20px;
+}
+
+.home-card2-content-orange{
+    color: #FFA982;
+}
+
+.home-card2-content-blue{
+    color: #5E81B9;
+}
+
+.home-card2-content-white{
+    color: #FFFFFF;
+}
+
 .home-card3-text{
-    background: linear-gradient(90deg, #BC89FF 0%, #7B3AFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.home-card4-text{
-    background: linear-gradient(90deg, #5596FF 12.35%, #FF9868 50.53%, #8EFFAA 88.71%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.home-card5-text{
+    text-align: center;
     background: linear-gradient(90deg, #FF5100 26.35%, #FFB700 74.31%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -152,6 +171,13 @@
     text-fill-color: transparent;
 }
 
-.home-card1{
-    text-align: right;
+.home-card3-content {
+    background-color: #1E1E1E;
+    border-radius: 50px;
+    width: 900px;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
