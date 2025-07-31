@@ -1,8 +1,12 @@
 .navbar-desktop{
     margin: 1.8em 0 0 0;
-    background-color: rgba(217, 217, 217, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* background-color: #3232321a; */
+    background-color: rgba(100, 100, 100, 0.1);
+    box-shadow: inset 1px 1px 5px rgba(255, 255, 255, 0.25);
+    filter: drop-shadow(1px -1px 4px rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
     
 
     display: flex;
@@ -42,17 +46,28 @@
     padding: 5px 10px 5px 10px;
 }
 
+.navbar-desktop-socials-container {
+    position: relative;
+}
+
+.navbar-desktop-socials{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 .navbar-desktop-socials-dropdown {
     display: none;
     position: absolute;
-    background: rgba(217, 217, 217, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(0px);
+    background-color: rgba(100, 100, 100, 0.1);
+    box-shadow: inset 1px 1px 5px rgba(255, 255, 255, 0.15);
+    filter: drop-shadow(1px -1px 4px rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 10px 0;
-    border-radius: 0px 0px 12px 12px;
+    border-radius: 12px;
     min-width: 160px;
     z-index: 100;
-    top: 58px;
+    top: 65px;
 }
 
 
@@ -67,7 +82,7 @@
 
 }
 
-.navbar-desktop-socials-container:hover .navbar-desktop-socials-dropdown{
-    display: block
+.navbar-desktop-socials-container:hover .navbar-desktop-socials-dropdown,
+.navbar-desktop-socials-dropdown:hover {
+    display: block;
 }
-
