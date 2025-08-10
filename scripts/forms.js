@@ -30,6 +30,8 @@ let formIndicatorTexts = [formIndicatorText0, formIndicatorText1, formIndicatorT
 let formButtonBack = document.getElementById("form-button-back");
 let formButtonNext = document.getElementById("form-button-next");
 
+let formShapesPosition = []
+
 document.addEventListener("DOMContentLoaded", (event) => {
     updateFormSectionLocation();
 });
@@ -71,11 +73,18 @@ function updateFormSectionLocation(direction) {
 
 function renderForm() {
     for (let i = 0; i < allFormSections.length; i++) {
+        gsap.to(allFormSections[i], {
+            opacity: 0,
+        });
         allFormSections[i].style.display = "none";
     };
-
+    window.scrollTo(0, 0);
+    gsap.to(formSections[formSectionLocation], {
+        opacity: 1,
+    });
     formSections[formSectionLocation].style.display = "block";
 };
+
 
 function renderFormIndicator(remove) {
     if (remove){
