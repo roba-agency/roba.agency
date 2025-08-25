@@ -56,16 +56,16 @@
 .navbar-desktop-socials-dropdown {
     display: none;
     position: absolute;
-    background-color: rgba(100, 100, 100, 0.1);
+    background-color: rgba(15, 15, 15);
     box-shadow: inset 1px 1px 5px rgba(255, 255, 255, 0.15);
     filter: drop-shadow(1px -1px 4px rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 10px 0;
-    border-radius: 12px;
+    padding: 30px 10px;
+    border-radius: 30px;
     min-width: 160px;
     z-index: 100;
-    top: 65px;
+    top: 120px;
 }
 
 
