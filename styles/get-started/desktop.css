@@ -33,6 +33,10 @@
     color: #D5B5FF !important;
 }
 
+.forms-content {
+    margin-bottom: 200px;
+}
+
 .form-textinput-100{
     background-color: #00000000;
     color: #FFFFFF;
