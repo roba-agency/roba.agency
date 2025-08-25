@@ -1,4 +1,6 @@
-@import url("navbar/desktop.css") /*screen and (min-width: 981px)*/;
+@import url("navbar/desktop.css") screen and (min-width: 981px);
+@import url("navbar/mobile.css") screen and (max-width: 981px);
+
 
 * {
     margin: 0;

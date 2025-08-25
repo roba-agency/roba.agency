@@ -146,17 +146,6 @@
     filter: drop-shadow(1px -1px 4px rgba(255, 255, 255, 0.1));
 
     padding: 15px 25px; 
-
-    transition: 0.2s;
-
-}
-
-.form-button:hover{
-    cursor: pointer;
-
-    background-color: rgba(164, 164, 164, 0.1);
-    box-shadow: inset 4px 4px 5px rgba(255, 255, 255, 0.15);
-    filter: drop-shadow(1px -1px 4px rgba(255, 255, 255, 0.1));
 }
 
 .form2-checkbox-container{
@@ -217,5 +206,7 @@
 }
 
 .form-mobile-notice{
-    display: none;
+    text-align: center;
+    font-size: 2em;
+    margin: 30px auto;
 }

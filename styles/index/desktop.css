@@ -20,6 +20,15 @@
     font-weight: 500; 
 }
 
+.home-landing-title-logo{
+    background: linear-gradient(180deg, #47447B 31.03%, #7A523E 91.52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 8px 8px 10px rgba(82, 71, 112, 0.25), -8px -8px 10px rgba(117, 83, 73, 0.25);
+}
+
 .home-landing-text{
     font-size: 1.6em;
     max-width: 12em;
@@ -553,6 +562,7 @@
     letter-spacing: -3%;
     line-height: 1em;
     text-align: center;
+    max-width: 1000px;
 }
 
 .home-info3-left-button{
@@ -593,4 +603,48 @@
 .home-info3-right-blue{
     top: 200px;
     right: 150px;
+}
+
+.home-merch-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+.home-merch-img{
+    width: 130%;
+}
+
+.home-merch-title{
+    font-weight: 500;
+    font-size: 4.5em;
+    letter-spacing: -3%;
+    line-height: 1em;
+    max-width: 80%
+}
+
+.home-merch-text{
+    font-weight: 500;
+    font-size: 3em;
+    line-height: 1em;
+    letter-spacing: 0;
+
+    background: linear-gradient(90deg, #989898 0%, #BABABA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-merch-text-highlight{
+    background: linear-gradient(180deg, #4901DC 0%, #3800A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
 }
