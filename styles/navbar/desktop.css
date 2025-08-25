@@ -47,6 +47,11 @@
     padding: 5px 10px 5px 10px;
 }
 
+.navbar-desktop-button:hover{
+    background-color: rgba(217, 217, 217, 0.2);
+}
+
+
 .navbar-desktop-socials-container {
     position: relative;
 }

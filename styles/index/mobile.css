@@ -414,45 +414,6 @@
     display: none;
 }
 
-.home-quote-container{
-    font-family: 'IBM Plex Serif';
-    width: 100%;
-    height: 550px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.home-quote-1{
-    font-size: 5em;
-}
-
-.home-quote-1-highlight1{
-    font-family: 'Delicious Handrawn';
-    color: #FF6060;
-    text-decoration: line-through
-}
-
-.home-quote-1-highlight2{
-    font-family: 'Delicious Handrawn';
-    color: #FF6060;
-    text-decoration: line-through
-}
-
-.home-quote-1-highlight3{
-    font-family: 'Delicious Handrawn';
-    color: #75AAFF;
-}
-
-.home-quote-2{
-    text-align: right;
-    font-size: 2em;
-    font-style: italic;
-}
-
 .home-info1{
     display: flex;
     max-width: 800px;
@@ -603,4 +564,48 @@
 .home-info3-right-blue{
     top: 200px;
     right: 150px;
+}
+
+.home-merch-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+.home-merch-img{
+    width: 130%;
+}
+
+.home-merch-title{
+    font-weight: 500;
+    font-size: 4.5em;
+    letter-spacing: -3%;
+    line-height: 1em;
+    max-width: 80%
+}
+
+.home-merch-text{
+    font-weight: 500;
+    font-size: 3em;
+    line-height: 1em;
+    letter-spacing: 0;
+
+    background: linear-gradient(90deg, #989898 0%, #BABABA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.home-merch-text-highlight{
+    background: linear-gradient(180deg, #4901DC 0%, #3800A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
 }
