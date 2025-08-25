@@ -1,124 +1,103 @@
-body{
-    background-color: #FFFFFF;
-    margin-left: 23px;
-    overflow-x: hidden;
+@import url("navbar/desktop.css") screen and (min-width: 981px);
+@import url("navbar/mobile.css") screen and (max-width: 981px);
+
+
+* {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, li, span, button, div{
-    font-family: "Varela Round";
+body{
+    background-color: #000000;
+    font-family: 'Space Grotesk';
+    color: #ffffff;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
-@media only screen and (min-width: 980px) {
-    h1{
-    font-weight: 400;
-    font-size: 4em;
-    }
-
-    p{
-        font-weight: 400;
-        font-size: 1.7em;
-    }
-
-    a{
-        color: #000000;
-        text-decoration: none;
-    }
-    
+a{
+    text-decoration: none;
 }
-
-@media only screen and (max-width: 980px) {
-    html {
-        font-size: 16px;
-    }
-
-    h1{
-        font-weight: 400;
-        font-size: 4em;
-        line-height: 1.2;
-        margin-bottom: 0.5em;
-    }
-
-    p{
-        font-weight: 400;
-        font-size: 2.5em;
-        line-height: 1.4;
-        margin: 0.5em 0;
-    }
-
-    a{
-        color: #000000;
-        text-decoration: none;
-        font-size: 2.5em;
-    }
-
-    body {
-        padding: 0;
-        margin: 0;
-        overflow-x: hidden;
-    }
-
-    footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .footer-column p, .footer-column a{
-        font-size: 4em !important;
-    }
-
-    input, textarea {
-        font-size: 2.5em;
-        padding: 15px;
-        margin: 15px 10px;
-        width: calc(100% - 50px);
-    }
-
-    .footer-column {
-        gap: 20px;
-    }
-}
-
 
 footer{
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
+    height: 250px;
+    backdrop-filter: blur(5px);
+
     padding-top: 20px;
-    padding-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
-.footer-column{
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 100px;
+}
+
+.footer-item{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
-.footer-column p{
-    font-family: 'Afacad';
-    font-size: 2.2em;
-    color: #5500FF;
+.footer-item h1{
+    font-size: 2.5em;
 }
 
-.footer-column a{
-    font-family: 'Afacad';
-    font-size: 1.8em;
-    color: #5500FF;
-}
-
-
-
-input, textarea{
-    border-radius: 10px;
-    border-color: #515151;
-    border-width: 2px;
-    padding: 10px;
-
-    font-family: 'Varela Round';
-    color: #9C9C9C;
+.footer-item a{
     font-size: 2em;
-    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-socials h2{
+    background: linear-gradient(94.58deg, #FFB700 1.86%, #FF5100 64.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    font-size: 40px;
+}
+
+.footer-other-stuff h2{
+    background: linear-gradient(94.58deg, #1F6EEE 1.86%, #094098 64.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    font-size: 40px;
+}
+
+.footer-contact h2{
+    background: linear-gradient(94.58deg, #9A5EF0 1.86%, #3D02B5 64.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    font-size: 40px;
+}
+
+.footer-thanks{
+    text-align: center;
+    padding: 30px;
+    font-size: 1.5em;
+    font-weight: 450;
+}
+
+.footer-thanks-rohan{
+    color: #FFB001;
+}   
+
+.footer-thanks-badie{
+    color: #B074FF;
 }
