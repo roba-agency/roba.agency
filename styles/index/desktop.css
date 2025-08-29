@@ -66,25 +66,17 @@
 
 .home-shape-orange {
     position: absolute;
-    top: 6rem;
-    left: 20px;
-    width: 250px;
-    height: auto;
-}
-
-.home-shape-blue {
-    position: absolute;
-    bottom: -6rem;
-    left: 8.5rem;
+    top: 8rem;
+    left: 10px;
     width: 250px;
     height: auto;
 }
 
 .home-shape-purple {
     position: absolute;
-    right: 3rem;
+    right: 4rem;
     width: 250px;
-    bottom: -11rem;
+    bottom: -5rem;
 }
 
 .home-card-container{
@@ -459,7 +451,7 @@
     flex-direction: column-reverse !important;
 }
 
-.home-info-right-orange, .home-info-right-blue, .home-info-right-purple{
+.home-info-right-orange, .home-info-right-purple{
     width: 200px;
     margin-bottom: -100px;
 }
@@ -556,7 +548,7 @@
     width: 40%;
 }
 
-.home-info3-right-orange, .home-info3-right-blue, .home-info3-right-purple{
+.home-info3-right-orange, .home-info3-right-purple{
     position: absolute;
 }
 
@@ -566,13 +558,8 @@
 }
 
 .home-info3-right-purple{
-    top: 310px;
-    left: 430px;
-}
-
-.home-info3-right-blue{
-    top: 200px;
-    right: 150px;
+    top: 180px;
+    right: 180px;
 }
 
 .home-merch-container{
