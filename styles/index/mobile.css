@@ -72,12 +72,6 @@
     height: auto;
 }
 
-.home-shape-blue {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
 .home-shape-purple {
     position: absolute;
     right: 4rem;

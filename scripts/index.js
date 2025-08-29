@@ -22,10 +22,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     floatingShapeAnimation(7, '.home-shape-orange' ,12, 2, 7, 2);
     floatingShapeAnimation(15, '.home-shape-purple', 16, 2 + Math.PI / 1.5, 10, 2 + Math.PI / 1.5);
     if (jmediaquery.matches) {
-        floatingShapeAnimation(5, '.home-shape-blue', 8, -2 + Math.PI / 3, 4, -2 + Math.PI / 3);
-
         floatingShapeAnimation(7, '.home-info-right-orange' ,12, 2, 7, 2);
-        floatingShapeAnimation(5, '.home-info-right-blue', 8, -2 + Math.PI / 3, 4, -2 + Math.PI / 3);
         floatingShapeAnimation(15, '.home-info-right-purple', 16, 2 + Math.PI / 1.5, 10, 2 + Math.PI / 1.5);
     }
     
