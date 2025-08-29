@@ -94,7 +94,7 @@
 }
 
 .home-card1-content, .home-card2-content, .home-card3-content, .home-card4-content, .home-card5-content{
-    box-shadow: 0px 4px 20px 20px rgba(78, 78, 78, 0.25), inset 0px 0px 20px 1px rgba(74, 74, 74, 0.25);
+    box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.1), -1px -1px 4px rgba(255, 255, 255, 0.2);
 }
 
 .home-card1-title, .home-card2-title, .home-card3-title, .home-card4-title, .home-card5-title{
@@ -121,10 +121,11 @@
 }
 
 .home-card1-content {
-    background-color: #1E1E1E;
+    background-color: #080808;
     border-radius: 50px;
     width: 900px;
     height: 450px;
+
 
     display: flex;
     align-items: center;
@@ -145,7 +146,7 @@
 }
 
 .home-card2-content {
-    background-color: #1E1E1E;
+    background-color: #080808;
     border-radius: 50px;
     width: calc(900px - 20px);
     height: 450px;
@@ -183,7 +184,7 @@
 }
 
 .home-card3-content {
-    background-color: #1E1E1E;
+    background-color: #080808;
     border-radius: 50px;
     width: 900px;
     height: 450px;
@@ -249,7 +250,7 @@
 }
 
 .home-card4-content {
-    background-color: #1E1E1E;
+    background-color: #080808;
     border-radius: 50px;
     width: 900px;
     height: 450px;
@@ -333,7 +334,7 @@
 }
 
 .home-card5-content {
-    background-color: #1E1E1E;
+    background-color: #080808;
     border-radius: 50px;
     width: 870px;
     height: 420px;
