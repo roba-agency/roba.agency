@@ -94,7 +94,8 @@
 }
 
 .home-card1-content, .home-card2-content, .home-card3-content, .home-card4-content, .home-card5-content{
-    box-shadow: 0px 4px 20px 20px rgba(78, 78, 78, 0.25), inset 0px 0px 20px 1px rgba(74, 74, 74, 0.25);
+    background-color: #000000;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.15), -1px -1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .home-card1-title, .home-card2-title, .home-card3-title, .home-card4-title, .home-card5-title{
@@ -121,7 +122,6 @@
 }
 
 .home-card1-content {
-    background-color: #1E1E1E;
     border-radius: 50px;
     width: 900px;
     height: 450px;
@@ -145,7 +145,6 @@
 }
 
 .home-card2-content {
-    background-color: #1E1E1E;
     border-radius: 50px;
     width: calc(900px - 20px);
     height: 450px;
@@ -183,7 +182,6 @@
 }
 
 .home-card3-content {
-    background-color: #1E1E1E;
     border-radius: 50px;
     width: 900px;
     height: 450px;
@@ -249,7 +247,6 @@
 }
 
 .home-card4-content {
-    background-color: #1E1E1E;
     border-radius: 50px;
     width: 900px;
     height: 450px;
@@ -333,7 +330,6 @@
 }
 
 .home-card5-content {
-    background-color: #1E1E1E;
     border-radius: 50px;
     width: 870px;
     height: 420px;
@@ -405,7 +401,8 @@
 }
 
 .home-card-filler{
-    display: none;
+    height: 30px;
+    width: 800px;
 }
 
 .home-info1{
@@ -423,7 +420,10 @@
 
 .home-info1-left-title{
     font-weight: 500;
-    font-size: 4em;
+    font-size: 4.5em;
+    letter-spacing: -3%;
+    line-height: 1em;
+    margin-bottom: 20px;
 }
 
 .home-info1-left-text{
@@ -464,15 +464,16 @@
     align-items: center;
 }
 
-.home-info2-left-title1, .home-info2-left-title2{
+.home-info2-left-title{
     font-weight: 500;
     font-size: 4.5em;
     letter-spacing: -3%;
+    line-height: 0.9em;
+    max-width: 70%;
+    margin-bottom: 20px;
 }
 
 .home-info2-left-text{
-    margin-left: 30px;
-
     font-weight: 600;
     font-size: 3em;
     line-height: 1em;
@@ -484,7 +485,6 @@
     background-clip: text;
     text-fill-color: transparent;
     color: #5596FF;
-    text-decoration: line-through solid 3px;
 }
 
 .home-info2-right{
@@ -499,8 +499,6 @@
     justify-content: center;
 
     position: relative;
-
-    padding-bottom: 150px;
 }
 
 .home-info3-left{
@@ -541,25 +539,6 @@
     width: 40%;
 }
 
-.home-info3-right-orange, .home-info3-right-blue, .home-info3-right-purple{
-    position: absolute;
-}
-
-.home-info3-right-orange{
-    top: 100px;
-    left: 50px;
-}
-
-.home-info3-right-purple{
-    top: 310px;
-    left: 430px;
-}
-
-.home-info3-right-blue{
-    top: 200px;
-    right: 150px;
-}
-
 .home-merch-container{
     display: flex;
     justify-content: center;
@@ -571,7 +550,7 @@
 }
 
 .home-merch-img{
-    width: 30%;
+    width: 400px;
 }
 
 .home-merch-title{
@@ -587,6 +566,7 @@
     font-size: 3em;
     line-height: 1em;
     letter-spacing: 0;
+    max-width: 500px;
 
     background: linear-gradient(90deg, #989898 0%, #BABABA 100%);
     -webkit-background-clip: text;

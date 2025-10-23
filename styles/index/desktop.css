@@ -94,20 +94,22 @@
 }
 
 .home-card1-content, .home-card2-content, .home-card3-content, .home-card4-content, .home-card5-content{
-    box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.1), -1px -1px 4px rgba(255, 255, 255, 0.2);
+    background-color: #000000;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.15), -1px -1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .home-card1-title, .home-card2-title, .home-card3-title, .home-card4-title, .home-card5-title{
     font-size: 4.5em;
     letter-spacing: -0.03em;
     font-weight: 500;
-    margin-bottom: 0;
+    margin-bottom: -5px;
 }
 
 .home-card1-subtitle, .home-card2-subtitle, .home-card3-subtitle, .home-card4-subtitle, .home-card5-subtitle{
-    font-size: 2em;
+    font-size: 1.65em;
     font-weight: 500;
-    margin-top: 0;
+    margin-top: -5px;
+    margin-bottom: 10px;
 }
 
 .home-card1-text{
@@ -121,10 +123,9 @@
 }
 
 .home-card1-content {
-    background-color: #080808;
     border-radius: 50px;
-    width: 900px;
-    height: 450px;
+    width: 800px;
+    height: 400px;
 
 
     display: flex;
@@ -146,12 +147,11 @@
 }
 
 .home-card2-content {
-    background-color: #080808;
     border-radius: 50px;
-    width: calc(900px - 20px);
-    height: 450px;
-    font-size: 1.5em;
-    font-weight: 600;
+    width: calc(800px - 20px);
+    height: 400px;
+    font-size: 1.4em;
+    font-weight: 500;
     font-family: 'Jetbrains Mono';
     color: #4E4E4E;
 
@@ -159,7 +159,7 @@
     flex-direction: column;
     justify-content: center;
     
-    padding-left: 20px;
+    padding-left: 35px;
 }
 
 .home-card2-content-orange{
@@ -184,22 +184,21 @@
 }
 
 .home-card3-content {
-    background-color: #080808;
     border-radius: 50px;
-    width: 900px;
-    height: 450px;
+    width: 800px;
+    height: 400px;
 }
 
 .home-card3-meter{
     position: relative;
-    width: 900px;
-    height: 450px;
+    width: 800px;
+    height: 400px;
 
 }
 
 .home-card3-meter-outline{
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -207,11 +206,11 @@
 .home-card3-meter-inside{
     background-color: #000000;
     border-radius: 1000px;
-    width: 320px;
-    height: 320px;
+    width: 321px;
+    height: 321px;
         
     position: absolute;
-    top: 61%;
+    top: 54.65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -250,10 +249,9 @@
 }
 
 .home-card4-content {
-    background-color: #080808;
     border-radius: 50px;
-    width: 900px;
-    height: 450px;
+    width: 800px;
+    height: 400px;
     
     display: flex;
     justify-content: center;
@@ -334,10 +332,9 @@
 }
 
 .home-card5-content {
-    background-color: #080808;
     border-radius: 50px;
-    width: 870px;
-    height: 420px;
+    width: 770px;
+    height: 370px;
 
     padding-left: 30px;
     padding-top: 30px;
@@ -391,23 +388,22 @@
 
 .home-card5-results-item{
     width: 50%;
-    margin-top: 10px;
 }
 
 .home-card5-results-item-title{
     color: #A77CFF;
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 450;
 }
 
 .home-card5-results-item-text{
     color: #757575;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .home-card-filler{
     height: 588.5px;
-    width: 900px;
+    width: 800px;
 }
 
 .home-info1{
@@ -425,7 +421,10 @@
 
 .home-info1-left-title{
     font-weight: 500;
-    font-size: 4em;
+    font-size: 4.5em;
+    letter-spacing: -3%;
+    line-height: 1em;
+    margin-bottom: 20px;
 }
 
 .home-info1-left-text{
@@ -465,15 +464,16 @@
     align-items: center;
 }
 
-.home-info2-left-title1, .home-info2-left-title2{
+.home-info2-left-title{
     font-weight: 500;
     font-size: 4.5em;
     letter-spacing: -3%;
+    line-height: 0.9em;
+    max-width: 70%;
+    margin-bottom: 20px;
 }
 
 .home-info2-left-text{
-    margin-left: 30px;
-
     font-weight: 600;
     font-size: 3em;
     line-height: 1em;
@@ -485,7 +485,6 @@
     background-clip: text;
     text-fill-color: transparent;
     color: #5596FF;
-    text-decoration: line-through solid 3px;
 }
 
 .home-info2-right{
@@ -574,7 +573,7 @@
 }
 
 .home-merch-img{
-    width: 40%;
+    width: 400px;
 }
 
 .home-merch-title{
