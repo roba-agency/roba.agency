@@ -14,29 +14,19 @@
 }
 
 .home-landing-title{
-    font-size: 11rem;
-    letter-spacing: -0.07em;
-    margin: 0;
-    font-weight: 500; 
-}
-
-.home-landing-title-logo{
-    background: linear-gradient(180deg, #47447B 31.03%, #7A523E 91.52%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    text-shadow: 8px 8px 10px rgba(82, 71, 112, 0.25), -8px -8px 10px rgba(117, 83, 73, 0.25);
+    width: 80%;
+    height: auto;
+    content: url(/assets/index/home-logo-desktop.svg);
 }
 
 .home-landing-text{
     font-size: 1.6em;
-    max-width: 12em;
+    max-width: 13em;
     text-align: center;
     line-height: 1.8rem;
     font-weight: 450;
     margin-top: 0;
-    padding-bottom: 50px;
+    padding-bottom: 75px;
 }
 
 .home-landing-button{
@@ -66,8 +56,8 @@
 
 .home-shape-orange {
     position: absolute;
-    top: 8rem;
-    left: 10px;
+    top: 6rem;
+    left: 30px;
     width: 250px;
     height: auto;
 }
@@ -76,7 +66,7 @@
     position: absolute;
     right: 4rem;
     width: 250px;
-    bottom: -5rem;
+    bottom: 0rem;
 }
 
 .home-card-container{

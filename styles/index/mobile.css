@@ -1,5 +1,5 @@
 .home-landing-container{
-    padding-top: 10rem;
+    padding-top: 14rem;
     margin-bottom: 15rem;
     display: flex;
     flex-direction: column;
@@ -14,32 +14,21 @@
 }
 
 .home-landing-title{
-    font-size: 15rem;
-    letter-spacing: -0.07em;
-    margin: 0;
-    font-weight: 500; 
-    line-height: 13rem;
-    text-align: center;
-    padding-bottom: 60px;
-}
-
-.home-landing-title-logo{
-    background: linear-gradient(180deg, #47447B 31.03%, #7A523E 91.52%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    text-shadow: 8px 8px 10px rgba(82, 71, 112, 0.25), -8px -8px 10px rgba(117, 83, 73, 0.25);
+    width: 60%;
+    height: auto;
+    content: url(/assets/index/home-logo-mobile.svg);
 }
 
 .home-landing-text{
-    font-size: 3em;
-    max-width: 12em;
+    font-size: 2em;
+    max-width: 13em;
     text-align: center;
+    line-height: 1.8rem;
     font-weight: 450;
-    margin-top: 0;
-    padding-bottom: 50px;
+    margin-top: 10px;
+    padding-bottom: 75px;
 }
+
 
 .home-landing-button{
     display: flex;
