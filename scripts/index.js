@@ -157,6 +157,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }, "<");
 
     //card 4
+
+    //card 5
     let card4Animation;
     if (jmediaquery.matches) {
         card4Animation = gsap.timeline({
@@ -168,6 +170,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 end: '+=589',
             }
         });
+
+        let card4typing = SplitText.create(".home-card4-searchbar-text", { type: "chars" });
+
+        card4Animation.from(card4typing.chars, {
+            autoAlpha: 0,
+            stagger: 1,
+            ease: 'power2',
+            duration: 1,
+        });
+
+        card4Animation.to('.home-card4-results', {
+            opacity: 1,
+            duration: 5,
+        }); 
+
     } else {
         card4Animation = gsap.timeline({
             scrollTrigger: {
@@ -176,66 +193,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 end: '+=589',
             }
         });
-    }
 
-    card4Animation.to('.server-indicator-blue', {
-        opacity: 1,
-    });
+        let card4typing = SplitText.create(".home-card4-searchbar-text", { type: "chars" });
 
-    card4Animation.to('.server-indicator-yellow', {
-        opacity: 1,
-    });
-
-    card4Animation.to('.server-indicator-green', {
-        opacity: 1,
-    });
-
-    //card 5
-    let card5Animation;
-    if (jmediaquery.matches) {
-        card5Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card5',
-                pin: true,
-                start: 'center center+=33',
-                scrub: 1,
-                end: '+=589',
-            }
-        });
-
-        let card5typing = SplitText.create(".home-card5-searchbar-text", { type: "chars" });
-
-        card5Animation.from(card5typing.chars, {
-            autoAlpha: 0,
-            stagger: 1,
-            ease: 'power2',
-            duration: 1,
-        });
-
-        card5Animation.to('.home-card5-results', {
-            opacity: 1,
-            duration: 5,
-        }); 
-
-    } else {
-        card5Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card5',
-                start: 'center center+=33',
-                end: '+=589',
-            }
-        });
-
-        let card5typing = SplitText.create(".home-card5-searchbar-text", { type: "chars" });
-
-        card5Animation.from(card5typing.chars, {
+        card4Animation.from(card4typing.chars, {
             autoAlpha: 0,
             stagger: 0.05,
             ease: 'power2',
             duration: 0.5,
         });
 
-        card5Animation.to('.home-card5-results', {
+        card4Animation.to('.home-card4-results', {
             opacity: 1,
             duration: 1,
         }); 
