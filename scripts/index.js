@@ -158,65 +158,98 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     //card 4
 
-    //card 5
-    let card4Animation;
-    if (jmediaquery.matches) {
-        card4Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card4',
-                pin: true,
-                start: 'center center+=33',
-                scrub: 1,
-                end: '+=589',
-            }
-        });
-
-        let card4typing = SplitText.create(".home-card4-searchbar-text", { type: "chars" });
-
-        card4Animation.from(card4typing.chars, {
-            autoAlpha: 0,
-            stagger: 1,
-            ease: 'power2',
-            duration: 1,
-        });
-
-        card4Animation.to('.home-card4-results', {
-            opacity: 1,
-            duration: 5,
-        }); 
-
-    } else {
-        card4Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card4',
-                start: 'center center+=33',
-                end: '+=589',
-            }
-        });
-
-        let card4typing = SplitText.create(".home-card4-searchbar-text", { type: "chars" });
-
-        card4Animation.from(card4typing.chars, {
-            autoAlpha: 0,
-            stagger: 0.05,
-            ease: 'power2',
-            duration: 0.5,
-        });
-
-        card4Animation.to('.home-card4-results', {
-            opacity: 1,
-            duration: 1,
-        }); 
-    }
+    // ...existing code...
 
     if (jmediaquery.matches) {
         let infoShapesAnimation = gsap.timeline({
             scrollTrigger: {
-                trigger: '.home-info1-right',
+                trigger: '.home-info1-left',
                 pin: true,
-                start: 'center center+=33',
-                end: '+=530',
+                start: 'center center+=120',
+                end: '+=244',
             }
         })
     }
+
+    gsap.to('.home-info2-title-highlight', {
+        '--reveal': '100%',
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.home-info2-title',
+            start: 'top 60%',
+            end: 'top 20%', 
+            toggleActions: 'play none none none',
+        }
+    });
+
+
+    gsap.set('.home-info2-content-right-1', {
+        visibility: 'visible',
+        opacity: 1,
+        y: 0
+    });
+
+    document
+    .querySelector('.home-info2-content-left-1')
+    .classList.add('active');
+
+    window.handleInfoOptions = function (buttonName) {
+        const allContent = document.querySelectorAll(
+            '.home-info2-content-right-text'
+        );
+
+        const allButtons = document.querySelectorAll(
+            '.home-info2-content-left-text'
+        );
+
+        const target = document.querySelector(
+            `.home-info2-content-right-${buttonName}`
+        );
+
+        const activeButton = document.querySelector(
+            `.home-info2-content-left-${buttonName}`
+        );
+
+        // reset buttons
+        allButtons.forEach(btn => btn.classList.remove('active'));
+
+        // activate current button
+        activeButton.classList.add('active');
+
+        // animate content out
+        gsap.to(allContent, {
+            opacity: 0,
+            y: 12,
+            duration: 0.25,
+            ease: 'power2.out',
+            onComplete: () => {
+                gsap.set(allContent, {
+                    visibility: 'hidden',
+                    y: 0
+                });
+
+                gsap.set(target, {
+                    visibility: 'visible',
+                    y: 12
+                });
+
+                gsap.to(target, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    };
+    
+    window.handleFAQ = function (newFaqClassName) {
+        allFaqContent = document.querySelectorAll('.home-faq-a')
+        newFaqContent = document.querySelector(newFaqClassName)
+
+        allFaqContent.forEach(content => content.classList.remove('home-faq-a-active'))
+
+        newFaqContent.classList.add("home-faq-a-active")
+    };
 });

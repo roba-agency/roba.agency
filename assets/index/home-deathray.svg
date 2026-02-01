@@ -1,0 +1,46 @@
+<svg width="1440" height="904" viewBox="0 0 1440 904" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_n_2088_184)">
+<g filter="url(#filter1_f_2088_184)">
+<path d="M-127 120C-127 120 373.245 410.34 720 410.34C1066.76 410.34 1567 120 1567 120V784C1567 784 1064.94 510.965 720 510.965C375.055 510.965 -127 784 -127 784V120Z" fill="#7352FF"/>
+</g>
+<g filter="url(#filter2_f_2088_184)">
+<path d="M-233 120C-233 120 329.849 410.34 720 410.34C1110.15 410.34 1673 120 1673 120V784C1673 784 1108.11 510.965 720 510.965C331.886 510.965 -233 784 -233 784V120Z" fill="#AD8AFF"/>
+</g>
+<g filter="url(#filter3_f_2088_184)">
+<path d="M-233 248.78C-233 248.78 329.849 426.499 720 426.499C1110.15 426.499 1673 248.78 1673 248.78V655.22C1673 655.22 1108.11 488.093 720 488.093C331.886 488.093 -233 655.22 -233 655.22V248.78Z" fill="#E8E4FF"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_n_2088_184" x="-233" y="120" width="1906" height="664" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="180" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(255, 255, 255, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_2088_184">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<filter id="filter1_f_2088_184" x="-247" y="0" width="1934" height="904" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="60" result="effect1_foregroundBlur_2088_184"/>
+</filter>
+<filter id="filter2_f_2088_184" x="-273" y="80" width="1986" height="744" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_2088_184"/>
+</filter>
+<filter id="filter3_f_2088_184" x="-257" y="224.78" width="1954" height="454.439" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur_2088_184"/>
+</filter>
+</defs>
+</svg>
