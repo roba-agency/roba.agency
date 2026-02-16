@@ -1,3 +1,3 @@
 [build]
-  command = "jekyll build --source blog --destination public/blog"
+  command = "cd blog && bundle install && bundle exec jekyll build --destination ../public/blog"
   publish = "public"
