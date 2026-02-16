@@ -1,9 +1,7 @@
 [build]
   command = """
-  mkdir -p public
-  cp -r index.html styles assets public/ 2>/dev/null || true
   cd blog
   bundle install
-  bundle exec jekyll build --destination ../public/blog
+  bundle exec jekyll build --destination ../blog
   """
-  publish = "public"
+  publish = "."
