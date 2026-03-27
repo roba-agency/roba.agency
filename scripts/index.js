@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 });
 
                 gsap.set(target, {
-                    visibility: 'invisible',
+                    visibility: 'visible',
                     y: 12
                 });
 
