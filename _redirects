@@ -1,1 +1,3 @@
 /blog/*  https://roba-blog.netlify.app/:splat  200
+/.netlify/identity/*  https://roba-blog.netlify.app/.netlify/identity/:splat  200
+/.netlify/git/*  https://roba-blog.netlify.app/.netlify/git/:splat  200
