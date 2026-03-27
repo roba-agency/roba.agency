@@ -1,5 +1,5 @@
 .home-landing-container{
-    padding-top: 14rem;
+    padding-top: 9rem;
     margin-bottom: 15rem;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,6 @@
     position: relative;
     z-index: 1;
 
-    max-width: 1250px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,25 +15,42 @@
 .home-landing-title{
     width: 60%;
     height: auto;
-    content: url(/assets/index/home-logo-mobile.svg);
+    content: url(/assets/index/home-logo-desktop.svg);    
+    max-width: 1000px;
+
 }
 
 .home-landing-text{
-    font-size: 2em;
-    max-width: 13em;
+    font-size: 1.6em;
     text-align: center;
     line-height: 1.8rem;
     font-weight: 450;
-    margin-top: 20px;
+    margin-top: 0;
     padding-bottom: 75px;
 }
 
+.home-landing-deathray-container{
+    width: 100%;
+}
 
 .home-landing-deathray{
     content: url(/assets/index/home-deathray.svg);
     width: 100%;
 
-    margin: -300px 0 -200px;
+    margin: -27% 0 -22%;
+}
+
+.home-landing-orb{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 1000px;
+    filter: blur(100px);
+    mix-blend-mode: plus-lighter;
 }
 
 .home-landing-button{
@@ -80,7 +96,7 @@
     position: relative;
 }
 
-.home-card1-content, .home-card2-content, .home-card3-content{
+ .home-card1-content, .home-card2-content, .home-card3-content{
     background-color: #000000;
     box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.15), -1px -1px 2px rgba(255, 255, 255, 0.3);
 }
@@ -218,16 +234,17 @@
 
 
 .home-card-filler{
-    display: none;
+    height: 588.5px;
+    width: 800px;
 }
 
 .home-info1{
     display: flex;
     flex-direction: row;
-    align-items: top;
+    align-items: flex-end;
     justify-content: center;
 
-    padding: 150px 0;
+    padding: 100px 0 300px;
     gap: 8px;
     
     font-size: 48px;
@@ -380,25 +397,28 @@
 
 .home-faq-title{
     font-weight: 400;
-    font-size: 96px;
+    font-size: 64px;
 }
 
 .home-faq p{
-    font-size: 32px;
+    font-size: 20px;
     padding: 10px 0;
     max-width: 800px;
 }
 
 .home-faq-q{
     cursor: pointer;
+    margin-bottom: -20px;
 }
 
 .home-faq-a{
-    display: none;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .home-faq-a-active{
-    display: block;
+    pointer-events: auto;
 }
 
 .home-merch-container{
@@ -464,7 +484,7 @@
     text-align: center;
     font-size: 56px;
     font-weight: 400;
-    letter-spacing: -2px;
+    letter-spacing: -7%;
 
     max-width: 800px;
     margin: 125px auto 0;

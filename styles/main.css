@@ -16,7 +16,6 @@ body{
     background: linear-gradient(145.9deg, #000000 13.71%, #0b0020 95.38%), linear-gradient(176.53deg, #000000 11.13%, #0b0020 66.91%);
     font-family: 'Space Grotesk', monospace;
     color: #fff;
-    max-width: 1250px;
     margin: 0 auto;
 }
 
@@ -72,11 +71,11 @@ a{
 .footer-bottom{
     color: #F2E8FF;
     font-weight: 600;
-    font-size: 220px;
+    font-size: 18vw;
     letter-spacing: -7%;
     text-align: center;
     
-    margin-bottom: -100px;
+    margin-bottom: -8vw;
 }
 
 @media screen and (max-width: 981px) {
