@@ -3,14 +3,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     var jmediaquery = window.matchMedia( "(min-width: 981px)" );
 
-    orbMove = function (event) {
+    addEventListener("mousemove", (event) => { 
         const orb = document.querySelector('.home-landing-orb');
         const rect = orb.getBoundingClientRect();
         const x = event.clientX
         const y = event.clientY - rect.top - rect.height / 2;
         orb.style.left = `${x}px`;
-        console.log(x);
-    }
+    });
     
     //card animations
     //set meter dot in card3 to corrent position so animation doenst look sketchy
