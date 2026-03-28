@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         });
     }
-    let card2typing = SplitText.create(".home-card2-content", { type: "chars" });
+    let card2typing = SplitText.create(".home-card2-content", { type: "chars", aria: "none"  });
 
     card2Animation.from(card2typing.chars, {
         autoAlpha: 0,
