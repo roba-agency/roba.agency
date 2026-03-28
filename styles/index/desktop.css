@@ -37,6 +37,7 @@
 .home-landing-deathray{
     content: url(/assets/index/home-deathray.svg);
     width: 100%;
+    height: auto;
 
     margin: -27% 0 -22%;
 }
