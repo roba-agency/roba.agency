@@ -3,14 +3,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     var jmediaquery = window.matchMedia( "(min-width: 981px)" );
 
-    addEventListener("mousemove", (event) => { 
-        const orb = document.querySelector('.home-landing-orb');
-        const rect = orb.getBoundingClientRect();
-        const x = event.clientX
-        const y = event.clientY - rect.top - rect.height / 2;
-        orb.style.left = `${x}px`;
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    gsap.to('.home-landing-orb', {
+        left: '100%',
+        duration: 2,
+        ease: 'power1.inOut',
+        yoyo: true,
+        repeat: -1
     });
-    
+        
     //card animations
     //set meter dot in card3 to corrent position so animation doenst look sketchy
     gsap.set('.home-card3-meter-dot', {
@@ -143,11 +147,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // ...existing code...
 
-    let infoShapesAnimation = gsap.timeline({
+    gsap.timeline({
         scrollTrigger: {
-            trigger: '.home-info1',
-            pin: '.home-info1-right',
-            start: 'center center+=120',
+            trigger: '.home-info1-left',
+            pin: true,
+            start: 'center center',
             end: '+=244',
         }
     })
