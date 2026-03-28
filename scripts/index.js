@@ -1,161 +1,105 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, SplitText, MotionPathPlugin);
 
-    var jmediaquery = window.matchMedia( "(min-width: 981px)" );
+    const isDesktop = window.matchMedia("(min-width: 981px)").matches;
 
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-    gsap.to('.home-landing-orb', {
-        left: '100%',
+    // Cache DOM nodes
+    const homeLandingOrb = document.querySelector('.home-landing-orb');
+    const card1Line = document.querySelector('.home-card1-line-path');
+    const card3MeterDot = document.querySelector('.home-card3-meter-dot');
+    const card3MeterPath = document.querySelector('.home-card3-meter-outline-path');
+    const info2ContentRight = Array.from(document.querySelectorAll('.home-info2-content-right-text'));
+    const info2Buttons = Array.from(document.querySelectorAll('.home-info2-content-left-text'));
+    const faqItems = Array.from(document.querySelectorAll('.home-faq-a'));
+
+    // Precompute SplitText
+    const card2Text = document.querySelector(".home-card2-content");
+    const card2Chars = SplitText.create(card2Text, { type: "chars", aria: "none" }).chars;
+
+    // Orb animation
+    gsap.to(homeLandingOrb, {
+        x: '100%',
         duration: 2,
         ease: 'power1.inOut',
         yoyo: true,
         repeat: -1
     });
-        
-    //card animations
-    //set meter dot in card3 to corrent position so animation doenst look sketchy
-    gsap.set('.home-card3-meter-dot', {
-        motionPath: {
-            path: '.home-card3-meter-outline-path',
-            align: '.home-card3-meter-outline-path',
-            alignOrigin: [0.5, 0.5],
-            start: 0.03,
-            end: 0.03,
-        },
-        duration: 0,
+
+    // Card1 animation
+    let card1Animation = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.home-card1',
+            pin: isDesktop ? true : false,
+            start: 'center center+=33',
+            scrub: isDesktop ? 1 : false,
+            end: '+=589',
+        }
     });
+    card1Animation.fromTo(card1Line, { drawSVG: '0%' }, { drawSVG: '100%' });
 
-    //card 1
-    let card1Animation;
-    if (jmediaquery.matches) {
-        card1Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card1',
-                pin: true,
-                start: 'center center+=33',
-                scrub: 1,
-                end: '+=589',
-            }
-        })
-    } 
-    
-    else {
-        card1Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card1',
-                start: 'center center+=33',
-                end: '+=589'
-            }
-        })
-    }
-
-    card1Animation.from('.home-card1-line-path', { 
-        drawSVG:'0%',
-    });
-
-    card1Animation.to('.home-card1-line-path', { 
-        drawSVG:'100%',
-    });
-
-    let card1to2Animation = gsap.timeline({
+    // Card2 animation
+    let card2Animation = gsap.timeline({
         scrollTrigger: {
             trigger: '.home-card2',
-            start: 'center center+=622',
-            scrub: 1,
+            pin: isDesktop ? true : false,
+            start: 'center center+=33',
+            scrub: isDesktop ? 1 : false,
             end: '+=589',
-            snap: [0, 1],
         }
-    })
-
-
-    //card 2
-    let card2Animation;
-    if (jmediaquery.matches) {
-        card2Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card2',
-                pin: true,
-                start: 'center center+=33',
-                scrub: 1,
-                end: '+=589',
-            }
-        });
-    } else {
-        card2Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card2',
-                start: 'center center+=33',
-                end: '+=589',
-            }
-        });
-    }
-    let card2typing = SplitText.create(".home-card2-content", { type: "chars", aria: "none"  });
-
-    card2Animation.from(card2typing.chars, {
+    });
+    card2Animation.from(card2Chars, {
         autoAlpha: 0,
         stagger: 0.03,
         duration: 0.005,
         ease: 'power2',
     });
 
-    //card 3
-    let card3Animation;
-    if (jmediaquery.matches) {
-        card3Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card3',
-                pin: true,
-                start: 'center center+=33',
-                scrub: 1,
-                end: '+=589',
-            }
-        });
-    } else {
-        card3Animation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home-card3',
-                start: 'center center+=33',
-                end: '+=589',
-            }
-        });
-    }
-
-    card3Animation.to('.home-card3-meter-dot', {
+    // Card3 animation
+    // Precompute motion path positions
+    const card3PathBBox = card3MeterPath.getBBox();
+    gsap.set(card3MeterDot, {
         motionPath: {
-            path: '.home-card3-meter-outline-path',
-            align: '.home-card3-meter-outline-path',
+            path: card3MeterPath,
+            align: card3MeterPath,
             alignOrigin: [0.5, 0.5],
             start: 0.03,
-            end: 0.97,
-        },
-        ease: 'bounce.out',
-        duration: 2.5,
+            end: 0.03
+        }
     });
 
-    card3Animation.from('.home-card3-meter-inside-number', {
-        innerText: 0, 
-        snap: {
-            innerText: 1
+    let card3Animation = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.home-card3',
+            pin: isDesktop ? true : false,
+            start: 'center center+=33',
+            scrub: isDesktop ? 1 : false,
+            end: '+=589'
+        }
+    });
+
+    card3Animation.to(card3MeterDot, {
+        motionPath: {
+            path: card3MeterPath,
+            align: card3MeterPath,
+            alignOrigin: [0.5, 0.5],
+            start: 0.03,
+            end: 0.97
         },
-        duration: 1,
-    }, "<");
+        ease: 'bounce.out',
+        duration: 2.5
+    });
 
-    //card 4
-
-    // ...existing code...
-
+    // Home info animations
     gsap.timeline({
         scrollTrigger: {
             trigger: '.home-info1-left',
             pin: true,
             start: 'center center',
-            end: '+=244',
+            end: '+=244'
         }
-    })
-
+    });
 
     gsap.to('.home-info2-title-highlight', {
         '--reveal': '100%',
@@ -164,93 +108,44 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrollTrigger: {
             trigger: '.home-info2-title',
             start: 'top 60%',
-            end: 'top 20%', 
-            toggleActions: 'play none none none',
+            end: 'top 20%',
+            toggleActions: 'play none none none'
         }
     });
 
-
-    gsap.set('.home-info2-content-right-1', {
-        visibility: 'visible',
-        opacity: 1,
-        y: 0
-    });
-
-    document
-    .querySelector('.home-info2-content-left-1')
-    .classList.add('active');
+    gsap.set('.home-info2-content-right-1', { visibility: 'visible', opacity: 1, y: 0 });
+    document.querySelector('.home-info2-content-left-1').classList.add('active');
 
     window.handleInfoOptions = function (buttonName) {
-        const allContent = document.querySelectorAll(
-            '.home-info2-content-right-text'
-        );
-
-        const allButtons = document.querySelectorAll(
-            '.home-info2-content-left-text'
-        );
-
-        const target = document.querySelector(
-            `.home-info2-content-right-${buttonName}`
-        );
-
-        const activeButton = document.querySelector(
-            `.home-info2-content-left-${buttonName}`
-        );
+        const targetContent = document.querySelector(`.home-info2-content-right-${buttonName}`);
+        const activeButton = document.querySelector(`.home-info2-content-left-${buttonName}`);
 
         // reset buttons
-        allButtons.forEach(btn => btn.classList.remove('active'));
-
-        // activate current button
+        info2Buttons.forEach(btn => btn.classList.remove('active'));
         activeButton.classList.add('active');
 
-        // animate content out
-        gsap.to(allContent, {
-            opacity: 0,
-            y: 12,
-            duration: 0.25,
-            ease: 'power2.out',
-            onComplete: () => {
-                gsap.set(allContent, {
-                    visibility: 'hidden',
-                    y: 0
-                });
-
-                gsap.set(target, {
-                    visibility: 'visible',
-                    y: 12
-                });
-
-                gsap.to(target, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.35,
-                    ease: 'power2.out'
-                });
-            }
+        // animate content
+        info2ContentRight.forEach(content => {
+            if (content === targetContent) return;
+            gsap.to(content, { opacity: 0, y: 12, duration: 0.25, ease: 'power2.out', onComplete: () => {
+                gsap.set(content, { visibility: 'hidden', y: 0 });
+            }});
         });
+
+        gsap.set(targetContent, { visibility: 'visible', y: 12 });
+        gsap.to(targetContent, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
     };
-    
+
     window.handleFAQ = function (newFaqClassName) {
-        allFaqContent = document.querySelectorAll('.home-faq-a')
-        newFaqContent = document.querySelector(newFaqClassName)
-
-        allFaqContent.forEach(content => {
+        const newFaqContent = document.querySelector(newFaqClassName);
+        faqItems.forEach(content => {
             if (content === newFaqContent) return;
-            gsap.to(content, {
-                opacity: 0,
-                height: 0,
-                duration: 0.5,
-                ease: 'power2.out',
-                onComplete: () => {content.classList.remove("home-faq-a-active")}
-            });
-        })
-
-        newFaqContent.classList.add("home-faq-a-active")
-        gsap.to(newFaqContent, {
-            opacity: 1,
-            height: 'auto',
-            duration: 0.5,
-            ease: 'power2.out',
+            gsap.to(content, { opacity: 0, maxHeight: 0, duration: 0.5, ease: 'power2.out', onComplete: () => {
+                content.classList.remove("home-faq-a-active");
+            }});
         });
+
+        newFaqContent.classList.add("home-faq-a-active");
+        gsap.fromTo(newFaqContent, { maxHeight: 0, opacity: 0 }, { maxHeight: 500, opacity: 1, duration: 0.5, ease: 'power2.out' });
     };
 });

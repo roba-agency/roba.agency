@@ -533,6 +533,7 @@
     .home-landing-title {
         width: 60%;
         height: auto;
+        aspect-ratio: 4.43 / 1;
         content: url(/assets/index/home-logo-desktop.svg);
         max-width: 1000px;
 
@@ -555,6 +556,7 @@
     .home-landing-deathray {
         width: 100%;
         height: auto;
+        aspect-ratio: 1.59 / 1;
 
         margin: -27% 0 -22%;
     }
@@ -570,7 +572,7 @@
         border-radius: 1000px;
         filter: blur(100px);
         mix-blend-mode: plus-lighter;
-
+        will-change: transform;
         overflow: hidden;
     }
 

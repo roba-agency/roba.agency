@@ -1,10 +1,12 @@
 {
   "devDependencies": {
+    "critical": "^7.2.1",
     "parcel": "^2.16.4"
   },
   "source": "*.html",
   "scripts": {
     "dev": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --no-source-maps",
+    "postbuild": "node scripts/critical.mjs"
   }
 }
