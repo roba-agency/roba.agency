@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Orb animation
     gsap.to(homeLandingOrb, {
-        x: '100%',
+        x: window.innerWidth,
         duration: 2,
         ease: 'power1.inOut',
         yoyo: true,

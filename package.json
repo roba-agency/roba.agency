@@ -6,7 +6,6 @@
   "source": "*.html",
   "scripts": {
     "dev": "parcel",
-    "build": "parcel build --no-source-maps",
-    "postbuild": "node scripts/critical.mjs"
+    "build": "parcel build --no-source-maps"
   }
 }
