@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@parcel/optimizer-cssnano": "^2.16.4",
     "critical": "^7.2.1",
     "parcel": "^2.16.4"
   },
