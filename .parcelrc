@@ -1,0 +1,6 @@
+{
+  "bundler": "@parcel/bundler-default",
+  "optimizers": {
+    "*.css": ["@parcel/optimizer-cssnano"]
+  }
+}
