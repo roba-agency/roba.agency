@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, SplitText, MotionPathPlugin);
+    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, SplitText, MotionPathPlugin, ScrollSmoother, CustomEase);
 
     const isDesktop = window.matchMedia("(min-width: 981px)").matches;
 
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const card2Text = document.querySelector(".home-card2-content");
     const card2Chars = SplitText.create(card2Text, { type: "chars", aria: "none" }).chars;
 
+    CustomEase.create("home-info1-click", "M0,0 C0.2,0 0.2,0.5 0.25,0.5 C0.3,0.5 0.3,0 0.35,0 C0.4,0 0.4,0.5 0.45,0.5 C0.5,0.5 0.5,0 0.55,0 C0.6,0 0.6,0.5 0.65,0.5 C0.7,0.5 0.7,0 0.75,0 C0.8,0 0.8,0.5 0.85,0.5 C0.9,0.5 0.9,0 0.95,0 C1,0 1,1 1,1");
+    
     // Orb animation
     gsap.to(homeLandingOrb, {
         x: window.innerWidth,
@@ -91,6 +93,16 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 2.5
     });
 
+
+    card3Animation.from('.home-card3-meter-inside-number', {
+        innerText: 0, 
+        snap: {
+            innerText: 1
+        },
+        duration: 1,
+    }, "<");
+
+
     // Home info animations
     gsap.timeline({
         scrollTrigger: {
@@ -101,17 +113,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    gsap.to('.home-info2-title-highlight', {
-        '--reveal': '100%',
-        duration: 1.5,
-        ease: 'power2.out',
-        scrollTrigger: {
-            trigger: '.home-info2-title',
-            start: 'top 60%',
-            end: 'top 20%',
-            toggleActions: 'play none none none'
-        }
-    });
+    
+
+    // gsap.to('.home-info2-title-highlight', {
+    //     '--reveal': '100%',
+    //     duration: 1.5,
+    //     ease: 'power2.out',
+    //     scrollTrigger: {
+    //         trigger: '.home-info2-title',
+    //         start: 'top 60%',
+    //         end: 'top 20%',
+    //         toggleActions: 'play none none none'
+    //     }
+    // });
 
     gsap.set('.home-info2-content-right-1', { visibility: 'visible', opacity: 1, y: 0 });
     document.querySelector('.home-info2-content-left-1').classList.add('active');
@@ -127,9 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // animate content
         info2ContentRight.forEach(content => {
             if (content === targetContent) return;
-            gsap.to(content, { opacity: 0, y: 12, duration: 0.25, ease: 'power2.out', onComplete: () => {
-                gsap.set(content, { visibility: 'hidden', y: 0 });
-            }});
+            gsap.to(content, {
+                opacity: 0, y: 12, duration: 0.25, ease: 'power2.out', onComplete: () => {
+                    gsap.set(content, { visibility: 'hidden', y: 0 });
+                }
+            });
         });
 
         gsap.set(targetContent, { visibility: 'visible', y: 12 });
@@ -140,12 +156,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const newFaqContent = document.querySelector(newFaqClassName);
         faqItems.forEach(content => {
             if (content === newFaqContent) return;
-            gsap.to(content, { opacity: 0, maxHeight: 0, duration: 0.5, ease: 'power2.out', onComplete: () => {
-                content.classList.remove("home-faq-a-active");
-            }});
+            gsap.to(content, {
+                opacity: 0, 
+                height: 0, 
+                duration: 0.5, 
+                ease: 'power2.out', 
+                onComplete: () => {
+                    content.classList.remove("home-faq-a-active");
+                }
+            });
         });
 
         newFaqContent.classList.add("home-faq-a-active");
-        gsap.fromTo(newFaqContent, { maxHeight: 0, opacity: 0 }, { maxHeight: 500, opacity: 1, duration: 0.5, ease: 'power2.out' });
+        gsap.to(newFaqContent, 
+            { 
+                height: 'auto', 
+                opacity: 1, 
+                duration: 0.5, 
+                ease: 'power2.out' 
+            });
     };
 });

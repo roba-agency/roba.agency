@@ -2,6 +2,14 @@
 @import url("navbar/mobile.css") screen and (max-width: 981px);
 @import url('/styles/fonts.css');
 
+::selection {
+    background: #E8E4FF;
+    color: #000000;
+    -webkit-text-fill-color: #000000;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+}
+
 
 * {
         margin: 0;
